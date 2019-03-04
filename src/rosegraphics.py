@@ -839,8 +839,24 @@ class _RectangularShape(_Shape):
                 self.get_lower_right_corner().y]
 
 
-class Arc(_RectangularShape, _ShapeWithOutline):
-    """ Not yet implemented. """
+class Arc(_ShapeWithCenter, _ShapeWithOutline):
+    def __init__(self, x0,y0,x1,y1):
+        """
+          :type  center:  rg.Point
+          :type  radius:  int
+        """
+        # The following sets instance variable
+        #   self.center
+        # to a clone (copy) of the given rg.Point.
+        super().__init__(x0,y0,x1,y1, tkinter.Canvas.create_arc)
+
+        # The following sets default values for:
+        #   self.fill_color
+        #   self.outline_color
+        #   self.outline_thickness
+        super()._initialize_options()
+
+        # The radius is also stored in an instance variable:
 
 
 class Bitmap(_Shape):
@@ -1830,6 +1846,10 @@ class SimpleTurtle(object):
         """
         self._update_real_turtle()
         self._turtle.circle(radius)
+
+    def draw_Arc(self,r, extent):
+        self._update_real_turtle()
+        self._turtle.circle(r,extent)
 
     def draw_square(self, length_of_sides):
         """

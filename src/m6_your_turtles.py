@@ -33,22 +33,66 @@ import rosegraphics as rg
 
 window = rg.TurtleWindow()
 
-t1 = rg.SimpleTurtle()
+#Choose how many snowballs you want your snowman to have!
+snowballs = 3
+
+#initialize t1
+t1 = rg.SimpleTurtle('circle')
 t1.pen = rg.Pen('black', 3)
 t1.speed = 20
-r = 100
-c = -200
+r = (100/3)*snowballs
+c = (-200/3)*snowballs
 
-for k in range(3):
-    t1.pen_up()
-    t1.go_to(rg.Point(0,c))
-    t1.pen_down()
-    t1.draw_circle(r)
-    r = r - 20
-    c = c + 2*r
+#create body of snowman
+for k in range(snowballs):
+    print(c)
+    if k == 0:
+        t1.pen_up()
+        t1.go_to(rg.Point(0,c))
+        t1.pen_down()
+        t1.draw_circle(r)
+        r = r - (20/3)*snowballs
+        c = c + 2*r
+    if k > 0 and k < (snowballs-1):
+        t1.pen_up()
+        t1.go_to(rg.Point(0,c))
+        t1.draw_Arc(r, 45 + 10*(k-1))
+        t1.pen_down()
+        t1.draw_Arc(r, 270 - 20*(k-1))
+        t1.pen_up()
+        t1.draw_Arc(r,45 + 10*(k-1))
+        r = r - 20
+        c = c + 2*r
+    if k == (snowballs - 1):
+        t1.pen_up()
+        t1.go_to(rg.Point(0, c))
+        t1.draw_Arc(r, 45 + 10 * (k - 1))
+        t1.pen_down()
+        t1.draw_Arc(r, 270 - 20 * (k - 1))
+        t1.pen_up()
+        t1.draw_Arc(r, 45 + 10 * (k - 1))
 
-t2 = rg.SimpleTurtle()
+#use t1 as right eye of snowman
+t1.pen_up()
+t1.go_to(rg.Point(r/2 , 2*c))
+
+#redefine initials to draw buttons
+c = (-200/3)*snowballs
+r = (100/3)*snowballs
+
+#initialize t2
+t2 = rg.SimpleTurtle('circle')
+
+t2 = rg.SimpleTurtle('circle')
 t2.pen = rg.Pen('black', 2)
 t2.speed = 20
+rb = r/15
+
+for k in range(2*snowballs):
+    t2.pen_up()
+    t2.go_to(rg.Point(0,c))
+    t2.pen_down()
+    t2.draw_circle(rb)
+    c = c + r/4
 
 window.close_on_mouse_click()
