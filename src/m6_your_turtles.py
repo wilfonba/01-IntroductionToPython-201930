@@ -35,7 +35,7 @@ import math
 window = rg.TurtleWindow()
 
 ################################################################
-# TODO Choose how many snowballs you want your snowman to have!#
+# DO: Choose how many snowballs you want your snowman to have!#
 snowballs = 3                                                  #
 ################################################################
 
