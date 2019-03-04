@@ -13,10 +13,6 @@
 #   Control, Shift and Function keys down and press the F10 key.)
 #
 #   Confirm that you see the output in the  "Run"  window that appears.
-#     Note: I recommend that you click on the "Gear" symbol at the top-right
-#           part of that window and select
-#              Move to  ~  Right
-#           to make the output easier to see.
 #   Confirm that the output is what you expected, asking questions as desired.
 #
 #   This module is just an example (m1e, note the 'e').
