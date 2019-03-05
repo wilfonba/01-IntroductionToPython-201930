@@ -63,7 +63,6 @@ for k in range(snowballs):
         D = 2*r - 20
         d = ((D**2 + r**2 - R**2)/(2*D))
         theta = math.degrees(math.acos(d/r))
-        print(r, R, D, d, theta)
 
         # drawing the snowballs
         t1.pen_up()
