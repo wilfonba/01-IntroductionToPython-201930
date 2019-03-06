@@ -116,4 +116,5 @@ t3.speed = 20
 # make nose using t3
 t3.go_to(rg.Point(0, c - r/2))
 
+window.render()
 window.close_on_mouse_click()
